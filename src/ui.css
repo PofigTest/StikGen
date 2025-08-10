@@ -1,0 +1,71 @@
+:root{
+  --bg:#0f1115;         /* тёмный фон канвы, можно #f7f7f8 для светлой */
+  --panel:#161a22;      /* фон карточек */
+  --muted:#a1a6b3;
+  --text:#e6e8ee;
+  --brand:#4f46e5;      /* акцентная кнопка */
+  --radius:14px;
+  --gap:16px;
+  --gap-lg:24px;
+  --border:1px solid rgba(255,255,255,.08);
+  --shadow:0 6px 20px rgba(0,0,0,.25);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);}
+
+.app{
+  max-width:1100px;margin:0 auto;padding:28px;
+  display:grid;gap:var(--gap-lg);
+}
+
+.header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+
+.h1{font-size:28px;font-weight:700;margin:0}
+
+.badge{color:var(--muted);font-size:13px}
+
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.btn{
+  background:transparent;color:var(--text);border:var(--border);
+  padding:8px 12px;border-radius:12px;cursor:pointer
+}
+.btn:hover{border-color:rgba(255,255,255,.18)}
+.btn.primary{background:var(--brand);border-color:transparent}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.ghost{background:#1c2130}
+
+.grid{
+  display:grid;gap:var(--gap);
+}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+.card{
+  background:var(--panel);border:var(--border);border-radius:var(--radius);
+  padding:16px;box-shadow:var(--shadow)
+}
+
+.legend{font-size:14px;color:var(--muted);margin-bottom:8px}
+
+.row{display:flex;gap:12px}
+.row > .col{flex:1}
+
+label{font-size:12px;color:var(--muted);display:block;margin:0 0 6px}
+input[type="text"], input[type="number"], select, textarea{
+  width:100%;padding:10px 12px;border-radius:12px;background:#0f1320;
+  border:1px solid rgba(255,255,255,.08);color:var(--text);
+}
+textarea{min-height:220px;font-family:var(--mono);font-size:13px;line-height:1.5}
+
+.range{display:flex;align-items:center;gap:10px}
+.range output{min-width:40px;text-align:right;color:var(--muted);font-size:12px}
+
+.footer{color:var(--muted);font-size:12px;margin-top:-8px}
